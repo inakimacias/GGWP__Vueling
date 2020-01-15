@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="RUN IBERIA SERVER" name="GGWP__Iberia">    
+	<property environment="env"/>
+	<property name="src.dir" location="src"/>
+	<property name="bin.dir" location="bin"/>
+	<property name="lib.dir" location="lib"/>
+	<property name="dist.dir" location="dist"/>
+	<property name="resources.dir" location="resources"/>
+	
+	<property name="server.port" value="8005"/>
+	
+	<path id="classpath">
+	        <fileset dir="${lib.dir}">
+	            <include name="**/*.jar"/>
+	        </fileset>
+	        <pathelement location="${bin.dir}"/>
+	        <pathelement location="${resources.dir}"/>
+	    </path>
+	
+	<target name="Test" description="Runs a local test of the Server">
+        <java classname="dao.Test" classpathref="classpath" fork="true">
+        	<jvmarg value="-Dlog4j.configuration=log4j.properties"/>
+		</java>
+    </target>
+	
+	
+	<target name="RUN IBERIA SERVER" description="Runs the Facebook Server">
+		<java classname="remote.TCPSocketServer" classpathref="classpath" fork="true">
+	 		<arg value="${server.port}"/> 
+        </java>
+    </target>
+</project>
