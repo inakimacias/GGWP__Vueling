@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="RUN IBERIA SERVER" name="GGWP__Iberia">    
+<project basedir="." default="RUN VUELING SERVER" name="GGWP__Vueling">    
 	<property environment="env"/>
 	<property name="src.dir" location="src"/>
 	<property name="bin.dir" location="bin"/>
@@ -7,7 +7,7 @@
 	<property name="dist.dir" location="dist"/>
 	<property name="resources.dir" location="resources"/>
 	
-	<property name="server.port" value="8005"/>
+	<property name="server.port" value="8005"/> <!--8005-->
 	
 	<path id="classpath">
 	        <fileset dir="${lib.dir}">
@@ -24,7 +24,7 @@
     </target>
 	
 	
-	<target name="RUN IBERIA SERVER" description="Runs the Facebook Server">
+	<target name="RUN VUELING SERVER" description="Runs the Vueling Server">
 		<java classname="remote.TCPSocketServer" classpathref="classpath" fork="true">
 	 		<arg value="${server.port}"/> 
         </java>
